@@ -27,5 +27,9 @@ USER jupyter
 # Set the container working directory to the user home folder
 WORKDIR /home/jupyter
 
+COPY . /home/jupyter
+
+RUN pip3 install -r requirements.txt
+
 # Start the jupyter notebook
-ENTRYPOINT ["jupyter", "notebook", "--ip=*"]
+ENTRYPOINT ["jupyter", "notebook", "--ip=*", "--allow-root", "--NotebookApp.token=''"]
