@@ -31,5 +31,7 @@ COPY . /home/jupyter
 
 RUN pip3 install -r requirements.txt
 
+EXPOSE 8888:8888
+
 # Start the jupyter notebook
 ENTRYPOINT ["jupyter", "notebook", "--ip=*", "--allow-root", "--NotebookApp.token=''"]
